@@ -87,7 +87,7 @@ async function addRole(db) {
         db.query(
           `INSERT INTO role (title, salary, department_id) VALUES (?,?,?)`,
           [res.role, res.salary, newID],
-          (err, _res) => {
+          (err) => {
             err ? console.log(err) : null;
           }
         );
@@ -165,7 +165,6 @@ async function updateEmployee(db) {
     var employeeList = employeeID.map((employee) => ({
       name: `${employee.first_name} ${employee.last_name}: ${employee.id}`,
     }));
-    console.log(roleList, employeeList);
   } catch {
     console.log(err);
   }
